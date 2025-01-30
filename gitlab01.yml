@@ -1,0 +1,11 @@
+workflow:
+    name: Generate ASCII Artwork
+
+ascii_job:
+    before_script:
+        - gem install cowsay
+        - chmod +x ascii-script.sh
+    script:
+        - ./ascii-script.sh
+    after_script:
+        - echo "Executed at the end, can be used for cleaning/removign content"
