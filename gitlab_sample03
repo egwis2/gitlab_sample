@@ -15,10 +15,17 @@ build_file:
       - gem install cowsay
    script:
       - ./script.sh
+    artifacts:
+      name: Dragon Text File
+      paths:
+         - dragon.txt
+      expire_in: 1 days
 
 test_file:
    stage: test
    image: ruby:2.7
+   dependencies:
+      - build_file
    script:
       - |
          grep -i "dragon" dragon.txt
