@@ -1,0 +1,19 @@
+workflow:
+    name: Generate ASCII Artwork
+
+build_job_1:
+    before_script:
+        - gem install cowsay
+        - sleep 30s
+    script:
+        - cowsay -f dragon "Run for cover, I am a DRAGON...RAWR" >> dragon.txt
+
+test_job_2:
+    script:
+        - sleep 10s
+        - grep -i "dragon" dragon.txt
+
+deploy_job_3:
+    script:
+        - cat dragon.txt
+        - echo "deploying... .. "
